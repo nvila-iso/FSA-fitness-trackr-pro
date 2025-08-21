@@ -1,10 +1,15 @@
 import { useAuth } from "../auth/AuthContext";
-import { NavLink, Link, Navigate } from "react-router";
+import { NavLink, Link, useNavigate } from "react-router";
 
 /** Navbar with site navigation links */
 export default function Navbar() {
   const { token, logout } = useAuth();
-  // const { setPage } = usePage();
+  // const navigate = useNavigate();
+  const handleLogout = () => {
+    logout();
+    nagivate("/");
+  };
+
   return (
     <header>
       <p>Fitness Trackr</p>
@@ -13,10 +18,9 @@ export default function Navbar() {
 
         {token ? (
           <>
-            <Navigate to="/" />
-            <Link to="/" reloadDocument>
+            <NavLink to="/" reloadDocument>
               Log out
-            </Link>
+            </NavLink>
           </>
         ) : (
           <>

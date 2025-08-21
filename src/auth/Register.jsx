@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
-import { Navigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router";
 // import { usePage } from "../layout/PageContext";
 
 /** A form that allows users to register for a new account */
 export default function Register() {
   const { register } = useAuth();
+  const navigate = useNavigate();
   // const { setPage } = usePage();
 
   const [error, setError] = useState(null);
@@ -15,8 +16,9 @@ export default function Register() {
     const password = formData.get("password");
     try {
       await register({ username, password });
+      navigate("/");
       // setPage("activities");
-      <Navigate to="/" />;
+      // <Navigate to="/" />;
     } catch (e) {
       setError(e.message);
     }
