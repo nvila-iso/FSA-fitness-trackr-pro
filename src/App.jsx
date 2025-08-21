@@ -1,5 +1,5 @@
 // import { usePage } from "./layout/PageContext";
-import { BrowserRouter, Routes, Route } from "react-router";
+import { Routes, Route } from "react-router";
 import Register from "./auth/Register";
 import Login from "./auth/Login";
 import ActivitiesPage from "./activities/ActivitiesPage";
@@ -17,7 +17,7 @@ export default function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<ActivitiesPage />} />
-        <Route path="/:id" element={<SingleActivity />} />
+        <Route path="/activities/:id" element={<SingleActivity />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="*" element={<Error404 />} />

@@ -13,7 +13,7 @@ const SingleActivity = () => {
     error,
   } = useQuery(`/activities/${id}`, "activities");
 
-  if (loading || !activities) return <p>Loading...</p>;
+  if (loading || !activity) return <p>Loading...</p>;
   if (error) return <p>Sorry! {error}</p>;
 
   // const = {
@@ -27,7 +27,6 @@ const SingleActivity = () => {
       <h1>{activity?.name}</h1>
       <p>{activity?.description}</p>
       <p>{activity?.creatorName}</p>
-      <button>Delete</button>
     </>
   );
 };
